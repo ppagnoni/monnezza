@@ -11,9 +11,9 @@ spec:
     repoURL: git@github.com:ppagnoni/monnezza.git # we are using a public repo, we can use both ssh or https
     targetRevision: HEAD  # we can use git brnaches or tags and also regx expressions
                           # in case of it should point to the chart version
-    path: 'ArgoCD Tutorial for Beginners: GitOps CD for Kubernetes n1/01_example'
+    path: 'ArgoCD Tutorial for Beginners: GitOps CD for Kubernetes n1/01_example/'
   destination:
-    server: https://kubernetes.default.svc
+    server: https://kubernetes.default.svc   # this is the api-server service!!!
 
     # The destination is useful when you use a single argocd instance to deploy applications to multiple clusters. 
     # In our case, we'll deploy the app to the same Kubernetes cluster where argocd is running, so we need to provide a path to the local Kubernetes api server. 
