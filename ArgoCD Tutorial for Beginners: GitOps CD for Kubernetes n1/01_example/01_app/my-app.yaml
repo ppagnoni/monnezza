@@ -11,7 +11,7 @@ spec:
     repoURL: git@github.com:ppagnoni/monnezza.git # we are using a public repo, we can use both ssh or https
     targetRevision: HEAD  # we can use git brnaches or tags and also regx expressions
                           # in case of it should point to the chart version
-    path: "prova/01_example"
+    path: sprova/01_example
   destination:
     server: https://kubernetes.default.svc   # this is the api-server service!!!
 
