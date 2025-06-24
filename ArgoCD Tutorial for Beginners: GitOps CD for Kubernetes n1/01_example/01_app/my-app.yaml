@@ -9,9 +9,9 @@ spec:
   project: default    # Projects provide a logical grouping of applications, which is useful when Argo CD is used by multiple teams
   source:
     repoURL: git@github.com:ppagnoni/monnezza.git # we are using a public repo, we can use both ssh or https
-    targetRevision: master  # we can use git brnaches or tags and also regx expressions
+    targetRevision: HEAD  # we can use git brnaches or tags and also regx expressions
                           # in case of it should point to the chart version
-    path: 'ArgoCD Tutorial for Beginners: GitOps CD for Kubernetes #1/01_example'
+    path: 'ArgoCD Tutorial for Beginners: GitOps CD for Kubernetes n1/01_example'
   destination:
     server: https://kubernetes.default.svc
 
