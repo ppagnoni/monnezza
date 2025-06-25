@@ -18,3 +18,17 @@ spec:
     # The destination is useful when you use a single argocd instance to deploy applications to multiple clusters. 
     # In our case, we'll deploy the app to the same Kubernetes cluster where argocd is running, so we need to provide a path to the local Kubernetes api server. 
     # That's the bare minimum that we need to get started with argocd.
+
+  # https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/
+  # https://argo-cd.readthedocs.io/en/latest/user-guide/sync-options/
+  # https://codefresh.io/learn/argo-cd/argocd-sync-policies-a-practical-guide/
+  syncPolicy:   # manages the synchronization of applications deployed in a Kubernetes environment with their corresponding configurations stored in a Git repository. 
+    automated:
+      prune: true   # By default (and as a safety mechanism), automated sync will not delete resources when Argo CD detects the resource is no longer defined in Git
+      selfHeal: true   # automatically sync differences in the live cluster state and the Git-defined state (git is source of truth)
+      allowEmpty: false   # ???
+    syncOptions:
+      - Validate=true   # if a manifes has an unknown field it will be rejected by ArgoCD (Validate=true is the default) 
+      - CreateNamespace=false   # similar to helm chart it define if you want to create the namespace
+      - PrunePropagationPolicy=foreground   # ???
+      - PruneLast=true   # ???
