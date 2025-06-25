@@ -7,7 +7,10 @@ metadata:
                       # the namescpace here is always "argocd"
   finalizers:
     # - resources-finalizer.argocd.argoproj.io  # delete the resource in the cluster when the app is deleted by cli
-      # the option above trigger a warning 
+      # the option above trigger a warning when apply this app: prefer a domain-qualified finalizer name including a path (/) to avoid accidental conflicts with other finalizer writers
+      # 🚨 https://codefresh.io/blog/argocd-application-deletion-finalizers/
+      # 🚨 https://github.com/argoproj/argo-cd/issues/21035
+      # 🚨 https://github.com/argoproj/argo-cd/issues/22346
     - "resources-finalizer.argocd.argoproj.io/background"
 spec:
   project: default    # Projects provide a logical grouping of applications, which is useful when Argo CD is used by multiple teams
@@ -23,9 +26,9 @@ spec:
     # In our case, we'll deploy the app to the same Kubernetes cluster where argocd is running, so we need to provide a path to the local Kubernetes api server. 
     # That's the bare minimum that we need to get started with argocd.
 
-  # https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/
-  # https://argo-cd.readthedocs.io/en/latest/user-guide/sync-options/
-  # https://codefresh.io/learn/argo-cd/argocd-sync-policies-a-practical-guide/
+  # 🚨 https://argo-cd.readthedocs.io/en/stable/user-guide/auto_sync/
+  # 🚨 https://argo-cd.readthedocs.io/en/latest/user-guide/sync-options/
+  # 🚨 https://codefresh.io/learn/argo-cd/argocd-sync-policies-a-practical-guide/
   syncPolicy:   # manages the synchronization of applications deployed in a Kubernetes environment with their corresponding configurations stored in a Git repository. 
     automated:
       prune: true   # By default (and as a safety mechanism), automated sync will not delete resources when Argo CD detects the resource is no longer defined in Git
