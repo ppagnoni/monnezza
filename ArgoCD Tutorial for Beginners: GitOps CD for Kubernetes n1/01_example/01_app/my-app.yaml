@@ -6,7 +6,9 @@ metadata:
   namespace: argocd   # don't confuse the target namespace (1-deployment) with the argoCD application namespace
                       # the namescpace here is always "argocd"
   finalizers:
-    - resources-finalizer.argocd.argoproj.io  # delete the resource in the cluster when the app is deleted by cli
+    # - resources-finalizer.argocd.argoproj.io  # delete the resource in the cluster when the app is deleted by cli
+      # the option above trigger a warning 
+    - "resources-finalizer.argocd.argoproj.io/background"
 spec:
   project: default    # Projects provide a logical grouping of applications, which is useful when Argo CD is used by multiple teams
   source:
