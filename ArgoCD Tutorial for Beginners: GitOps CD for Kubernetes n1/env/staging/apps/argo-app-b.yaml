@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/ppagnoni/monnezza.git
     targetRevision: HEAD  
-    path: "ArgoCD Tutorial for Beginners: GitOps CD for Kubernetes n1/apps_pattern/app_b"
+    path: "ArgoCD Tutorial for Beginners: GitOps CD for Kubernetes n1/env/staging/app_b"
   destination:
     server: https://kubernetes.default.svc   
   syncPolicy:
