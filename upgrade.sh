@@ -8,7 +8,7 @@ new_ver=$1
 echo "new version: $new_ver"
 
 # Simulate release of the new docker images
-docker tag nginx:1.23.3 ppagnoni/nginx:$new_ver
+docker tag nginx:1.27.5 ppagnoni/nginx:$new_ver
 
 # Push new version to dockerhub
 docker push ppagnoni/nginx:$new_ver
