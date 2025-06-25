@@ -2,7 +2,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-app-ab
+  name: my-app-b
   namespace: argocd   
   finalizers:
     - "resources-finalizer.argocd.argoproj.io/background"
@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: https://github.com/ppagnoni/monnezza.git
     targetRevision: HEAD  
-    path: "ArgoCD Tutorial for Beginners: GitOps CD for Kubernetes n1/apps_pattern/app_a"
+    path: "ArgoCD Tutorial for Beginners: GitOps CD for Kubernetes n1/apps_pattern/app_b"
   destination:
     server: https://kubernetes.default.svc   
   syncPolicy:
