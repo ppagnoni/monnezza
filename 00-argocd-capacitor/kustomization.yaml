@@ -1,0 +1,26 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: GitRepository
+metadata:
+  name: base-infrastructure-repo
+  namespace: flux-system
+spec:
+  url: https://github.com/ppagnoni/monnezza.git
+  ref:
+    branch: master
+  interval: 1h
+  secretRef:
+    name: ssh-key
+--- 
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: base-infrastructure
+  namespace: flux-system
+spec:
+  sourceRef:
+    kind: GitRepository
+    name: base-infrastructure-repo
+  path: ./00-argocd-capacitor/apps
+  interval: 1h
+  prune: true
