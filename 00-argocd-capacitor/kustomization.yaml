@@ -9,8 +9,6 @@ spec:
   ref:
     branch: master
   interval: 1h
-  secretRef:
-    name: ssh-key
 --- 
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
